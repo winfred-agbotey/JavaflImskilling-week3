@@ -1,0 +1,83 @@
+services:
+  service-discovery:
+    image: mawulidev/service-discovery
+    mem_limit: 700m
+    ports:
+      - "8761:8761"
+    networks:
+      - micro_java-ms
+
+  api-gateway:
+    image: mawulidev/api-gateway
+    mem_limit: 700m
+    ports:
+      - "8765:8765"
+    networks:
+      - micro_java-ms
+    depends_on:
+      - service-discovery
+      # - config-service
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://eureka-service:8761/eureka
+
+  config-service:
+    image: mawulidev/config-server
+    mem_limit: 700m
+    ports:
+      - "8888:8888"
+    networks:
+      - micro_java-ms
+    depends_on:
+      - service-discovery
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://eureka-service:8761/eureka
+    volumes:
+      - "/home/mawulidev/Mawulidev/java projects/intermediate upskill/JavaflImskilling-week3/microservice/git-localconfig-repo:/config-repo"
+
+  user-service:
+    image: mawulidev/user-service
+    mem_limit: 700m
+    ports:
+      - "8081:8081"
+    networks:
+      - micro_java-ms
+    depends_on:
+      - service-discovery
+      # - config-service
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://eureka-service:8761/eureka
+
+  product-service:
+    image: mawulidev/product-service
+    mem_limit: 700m
+    ports:
+      - "8082:8082"
+    networks:
+      - micro_java-ms
+    depends_on:
+      - service-discovery
+      # - config-service
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://eureka-service:8761/eureka
+
+  order-service:
+    image: mawulidev/order-service
+    mem_limit: 700m
+    ports:
+      - "8085:8085"
+    networks:
+      - micro_java-ms
+    depends_on:
+      - service-discovery
+      # - config-service
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://eureka-service:8761/eureka
+
+networks:
+  micro_java-ms:
+    driver: bridge

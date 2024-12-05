@@ -1,0 +1,57 @@
+#spring.application.name=api-gateway
+
+#spring.application.name=gateway-demo
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: user-route
+          uri: ${USERS_ROUTE_URI:http://localhost:8081}
+          predicates:
+            - Path=/users/**
+          filters:
+            - PrefixPath=/api
+            - AddResponseHeader=X-Powered-By,Mawulidev Gateway Service
+
+        - id: product-route
+          uri: ${PRODUCTS_ROUTE_URI:http://localhost:8082}
+          predicates:
+            - Path=/products/**
+          filters:
+            - PrefixPath=/api
+            - AddResponseHeader=X-Powered-By,Mawulidev Gateway Service
+#
+        - id: order-route
+          uri: ${ORDERS_ROUTE_URI:http://localhost:8085}
+          predicates:
+            - Path=/orders/**
+          filters:
+            - PrefixPath=/api
+            - AddResponseHeader=X-Powered-By,Mawulidev Gateway Service
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+server:
+  port: 8765
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    health:
+#      show-details: always
+#    gateway:
+#      enabled: true
+#  tracing:
+#    sampling:
+#      probability: 1.0

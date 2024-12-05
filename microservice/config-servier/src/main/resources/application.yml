@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: "file:///home/mawulidev/Mawulidev/java projects/intermediate upskill/JavaflImskilling-week3/microservice/git-localconfig-repo"
+
+server:
+  port: 8888
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  cloud:
+    config:
+      server:
+        git:
+          uri: "file:///config-repo"
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
