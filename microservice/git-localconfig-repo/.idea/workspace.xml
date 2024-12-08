@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72e77a99-2c2c-4ff5-bdf6-be4c3bac3fc7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../config-servier/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/mawulidev/orderservice/InsufficientStockException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/mawulidev/orderservice/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/mawulidev/orderservice/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/mawulidev/orderservice/OrderRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/mawulidev/orderservice/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/mawulidev/orderservice/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/mawulidev/orderservice/ProductFeignClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../product-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../product-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/mawulidev/userservice/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-discovery/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../service-discovery/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="72e77a99-2c2c-4ff5-bdf6-be4c3bac3fc7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
